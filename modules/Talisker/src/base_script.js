@@ -76,7 +76,7 @@ const TASKS = [
     "name":"Account1",
     "accountId":"3148856",
     "selector":"podstate",
-    "chaining":"NONE", // TO REVIEW
+    "chaining":"NONE", 
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
@@ -148,7 +148,7 @@ const TASKS = [
     "name":"Account1",
     "accountId":"3148856",
     "selector":"podrestartreason",
-    "chaining":"NONE", // TO REVIEW
+    "chaining":"NONE", 
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
@@ -191,7 +191,6 @@ const TASKS = [
     "query":"SELECT average(duration) as 'avgpageload' FROM BrowserInteraction where category = 'Initial page load' SINCE 1 day ago facet appName limit max" // default limited to 10 results
     //SELECT average(duration) as 'AVG PageLoad',percentile(duration, 50) as '%' FROM BrowserInteraction  where category = 'Initial page load' SINCE 1 day ago
 },
-// COMBINE DATA AS --> SELECT filter(latest(`talisker.value`), WHERE `talisker.id` = 'avgpageloadpercentile') as 'Percentile(50)', filter(latest(`talisker.value`), WHERE `talisker.id` = 'avgpageload') as 'Average'   FROM Metric WHERE `talisker.id` = 'avgpageloadpercentile' OR talisker.id ='avgpageload' FACET `talisker.facet.appName` SINCE 30 MINUTES AGO limit
 {
     "id":"avgpageloadpercentile",
     "name":"Account1",
@@ -205,6 +204,13 @@ const TASKS = [
     //SELECT average(duration) as 'AVG PageLoad',percentile(duration, 50) as '%' FROM BrowserInteraction  where category = 'Initial page load' SINCE 1 day ago
 }
 ] 
+
+/*
+---------------------------------
+EXAMPLE COMBINING DATA NRQL QUERY
+---------------------------------
+SELECT filter(latest(`talisker.value`), WHERE `talisker.id` = 'avgpageloadpercentile') as 'Percentile(50)', filter(latest(`talisker.value`), WHERE `talisker.id` = 'avgpageload') as 'Average'   FROM Metric WHERE `talisker.id` = 'avgpageloadpercentile' OR talisker.id ='avgpageload' FACET `talisker.facet.appName` SINCE 30 MINUTES AGO limit
+*/
 
 const MONITOR_NAME="Account_1"   //the monitor name, only relevant if deploying more than once
 const MONITOR_ID="Account_1_Monitor_ID" //the monitor id, only relevant if deploying more than once
