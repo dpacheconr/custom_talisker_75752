@@ -2,7 +2,7 @@ const TASKS = [
 {
     "id":"cpupercentused",
     "name":"Account1",
-    "accountId":"3148856",
+    "accountId":"3148856", 
     "selector":"%CPU Used",
     "chaining":"NONE",
     "fillNullValue": 0,
@@ -92,7 +92,7 @@ const TASKS = [
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
-    "query":"SELECT latest(`condition.Ready`) as 'nodestatusready' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 MINUTES AGO"
+    "query":"SELECT latest(`condition.Ready`) as 'nodestatusready' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 minutes AGO"
     //SELECT latest(clusterName) FROM (SELECT uniqueCount(displayName) as 'nodestatus' FROM K8sNodeSample FACET clusterName, nodeName, displayName, cases(WHERE condition.Ready = 1 as 'True',WHERE condition.Ready=0 as 'False',WHERE condition.Ready=-1 as 'Unknown') as 'Ready', cases(WHERE condition.MemoryPressure=0 as 'False', WHERE condition.MemoryPressure=1 as 'True',WHERE condition.MemoryPressure=-1 as 'Unknown') as 'MemoryPressure' , cases(WHERE condition.DiskPressure = 1 as 'True',WHERE condition.DiskPressure=0 as 'False',WHERE condition.DiskPressure=-1 as 'Unknown') as 'DiskPressure' , cases(WHERE condition.PIDPressure = 1 as 'True',WHERE condition.PIDPressure=0 as 'False',WHERE condition.PIDPressure=-1 as 'Unknown') as 'PIDPressure' WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1))) WHERE Ready IS NOT NULL ORDER BY displayName FACET displayName, Ready, MemoryPressure, DiskPressure, PIDPressure WHERE clusterName IN ('pixie-auto-telemetry')
 },
 {
@@ -104,7 +104,7 @@ const TASKS = [
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
-    "query":"SELECT latest(`condition.PIDPressure`) as 'nodestatuspid' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 MINUTES AGO FACET nodeName SINCE 30 MINUTES AGO"
+    "query":"SELECT latest(`condition.PIDPressure`) as 'nodestatuspid' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 minutes AGO"
     //SELECT latest(clusterName) FROM (SELECT uniqueCount(displayName) as 'nodestatus' FROM K8sNodeSample FACET clusterName, nodeName, displayName, cases(WHERE condition.Ready = 1 as 'True',WHERE condition.Ready=0 as 'False',WHERE condition.Ready=-1 as 'Unknown') as 'Ready', cases(WHERE condition.MemoryPressure=0 as 'False', WHERE condition.MemoryPressure=1 as 'True',WHERE condition.MemoryPressure=-1 as 'Unknown') as 'MemoryPressure' , cases(WHERE condition.DiskPressure = 1 as 'True',WHERE condition.DiskPressure=0 as 'False',WHERE condition.DiskPressure=-1 as 'Unknown') as 'DiskPressure' , cases(WHERE condition.PIDPressure = 1 as 'True',WHERE condition.PIDPressure=0 as 'False',WHERE condition.PIDPressure=-1 as 'Unknown') as 'PIDPressure' WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1))) WHERE Ready IS NOT NULL ORDER BY displayName FACET displayName, Ready, MemoryPressure, DiskPressure, PIDPressure WHERE clusterName IN ('pixie-auto-telemetry')
 },
 {
@@ -116,7 +116,7 @@ const TASKS = [
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
-    "query":"SELECT latest(`condition.DiskPressure`) as 'nodestatusdisk' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 MINUTES AGO FACET nodeName SINCE 30 MINUTES AGO"
+    "query":"SELECT latest(`condition.DiskPressure`) as 'nodestatusdisk' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 minutes AGO"
     //SELECT latest(clusterName) FROM (SELECT uniqueCount(displayName) as 'nodestatus' FROM K8sNodeSample FACET clusterName, nodeName, displayName, cases(WHERE condition.Ready = 1 as 'True',WHERE condition.Ready=0 as 'False',WHERE condition.Ready=-1 as 'Unknown') as 'Ready', cases(WHERE condition.MemoryPressure=0 as 'False', WHERE condition.MemoryPressure=1 as 'True',WHERE condition.MemoryPressure=-1 as 'Unknown') as 'MemoryPressure' , cases(WHERE condition.DiskPressure = 1 as 'True',WHERE condition.DiskPressure=0 as 'False',WHERE condition.DiskPressure=-1 as 'Unknown') as 'DiskPressure' , cases(WHERE condition.PIDPressure = 1 as 'True',WHERE condition.PIDPressure=0 as 'False',WHERE condition.PIDPressure=-1 as 'Unknown') as 'PIDPressure' WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1))) WHERE Ready IS NOT NULL ORDER BY displayName FACET displayName, Ready, MemoryPressure, DiskPressure, PIDPressure WHERE clusterName IN ('pixie-auto-telemetry')
 },
 {
@@ -128,7 +128,7 @@ const TASKS = [
     "fillNullValue": 0,
     "invertResult": false,
     "ingestType": "metric",
-    "query":"SELECT latest(`condition.MemoryPressure`) as 'nodestatusmem' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 MINUTES AGO FACET nodeName SINCE 30 MINUTES AGO"
+    "query":"SELECT latest(`condition.MemoryPressure`) as 'nodestatusmem' FROM K8sNodeSample WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1)) FACET nodeName SINCE 30 MINUTES AGO"
     //SELECT latest(clusterName) FROM (SELECT uniqueCount(displayName) as 'nodestatus' FROM K8sNodeSample FACET clusterName, nodeName, displayName, cases(WHERE condition.Ready = 1 as 'True',WHERE condition.Ready=0 as 'False',WHERE condition.Ready=-1 as 'Unknown') as 'Ready', cases(WHERE condition.MemoryPressure=0 as 'False', WHERE condition.MemoryPressure=1 as 'True',WHERE condition.MemoryPressure=-1 as 'Unknown') as 'MemoryPressure' , cases(WHERE condition.DiskPressure = 1 as 'True',WHERE condition.DiskPressure=0 as 'False',WHERE condition.DiskPressure=-1 as 'Unknown') as 'DiskPressure' , cases(WHERE condition.PIDPressure = 1 as 'True',WHERE condition.PIDPressure=0 as 'False',WHERE condition.PIDPressure=-1 as 'Unknown') as 'PIDPressure' WHERE (condition.Ready IN (0,-1) OR condition.MemoryPressure IN (1,-1) OR condition.DiskPressure IN (1,-1) OR condition.PIDPressure IN (1,-1))) WHERE Ready IS NOT NULL ORDER BY displayName FACET displayName, Ready, MemoryPressure, DiskPressure, PIDPressure WHERE clusterName IN ('pixie-auto-telemetry')
 },
 {
@@ -232,8 +232,8 @@ const TALISKER_VERSION="1"
 const VERBOSE_LOG=true          // Control how much logging there is
 const DEFAULT_TIMEOUT = 5000    // You can specify a timeout for each task
 
-const INGEST_EVENT_ENDPOINT = NEWRELIC_DC === "" ? "insights-collector.eu01.nr-data.net" : "insights-collector.newrelic.com" 
-const INGEST_METRIC_ENDPOINT = NEWRELIC_DC === "" ? "metric-api.eu.newrelic.com" : "metric-api.newrelic.com" 
+const INGEST_EVENT_ENDPOINT = NEWRELIC_DC === "US" ? "insights-collector.eu01.nr-data.net" : "insights-collector.newrelic.com" 
+const INGEST_METRIC_ENDPOINT = NEWRELIC_DC === "US" ? "metric-api.eu.newrelic.com" : "metric-api.newrelic.com" 
 const GRAPHQL_ENDPOINT = NEWRELIC_DC === "" ? "api.eu.newrelic.com" : "api.newrelic.com" 
 const INGEST_EVENT_TYPE=`${NAMESPACE}Sample` //events are stored in the eventtype
 
