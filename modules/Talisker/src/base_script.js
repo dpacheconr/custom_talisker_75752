@@ -232,8 +232,8 @@ const TALISKER_VERSION="1"
 const VERBOSE_LOG=true          // Control how much logging there is
 const DEFAULT_TIMEOUT = 5000    // You can specify a timeout for each task
 
-const INGEST_EVENT_ENDPOINT = NEWRELIC_DC === "US" ? "insights-collector.eu01.nr-data.net" : "insights-collector.newrelic.com" 
-const INGEST_METRIC_ENDPOINT = NEWRELIC_DC === "US" ? "metric-api.eu.newrelic.com" : "metric-api.newrelic.com" 
+const INGEST_EVENT_ENDPOINT = NEWRELIC_DC === "" ? "insights-collector.eu01.nr-data.net" : "insights-collector.newrelic.com" 
+const INGEST_METRIC_ENDPOINT = NEWRELIC_DC === "" ? "metric-api.eu.newrelic.com" : "metric-api.newrelic.com" 
 const GRAPHQL_ENDPOINT = NEWRELIC_DC === "" ? "api.eu.newrelic.com" : "api.newrelic.com" 
 const INGEST_EVENT_TYPE=`${NAMESPACE}Sample` //events are stored in the eventtype
 
